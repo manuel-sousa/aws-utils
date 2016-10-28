@@ -84,7 +84,8 @@ parser.add_argument('--SOA', action="store_true", help='change SOA record')
 parser.add_argument('--NS', action="store_true", help='change NS record')
 parser.add_argument('-v', '--verbose', help='verbose', action="store_const", dest="loglevel", const=logging.INFO)
 parser.add_argument('-d', '--debug', help='debug', action="store_const", dest="loglevel", const=logging.DEBUG)
-subparser = parser.add_subparsers(description="available commands", help="additional help")
+subparser = parser.add_subparsers(description="available commands", help="additional help", dest="command")
+subparser.required=True
 
 # TTL command
 ttl_parser = subparser.add_parser('ttl', help='change domain records TTL')
