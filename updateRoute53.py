@@ -20,7 +20,7 @@ def __getComment(args):
         )
 
 def ttl(record, args):
-    if(record['TTL'] != args.ttl):
+    if('TTL' in record and record['TTL'] != args.ttl):
         logging.info("Changing ttl from %s to %s for %s %s" % (record['TTL'], args.ttl, record['Name'], record['Type']))
         record['TTL'] = args.ttl
         return True
